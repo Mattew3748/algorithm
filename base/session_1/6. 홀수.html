@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let sum = 0, max = Number.MAX_SAFE_INTEGER;
+                arr.forEach( item => {
+                    if(item%2 === 1){
+                        sum += item;
+                        max > item ? max = item : '';   
+                    }
+                });
+                return [sum,max]
+            }
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

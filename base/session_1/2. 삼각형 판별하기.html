@@ -1,0 +1,19 @@
+<!-- Hint : 삼각형의 세변의 길이 중, 가장 큰 변의 길이가 다른 두변의 길이의 합보다 작아야 된다. -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let sum = a+b+c, longest = a, res = "YES";
+                if(a<b) longest = b;
+                if(longest<c) longest = c;
+                if( (sum - longest) < longest) res = " NO";
+                return res;
+            }
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>

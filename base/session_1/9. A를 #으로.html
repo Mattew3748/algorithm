@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+                const res = str.split('').map( str => str === 'A' ? str='#' : str).join('')
+                return res;
+            }
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+

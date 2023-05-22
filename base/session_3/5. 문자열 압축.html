@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+                let answer = "";
+                let count = 1;
+                for(let s = 0; s < str.length; s++){
+                    if(count === 1) answer += str[s];
+                    if(str[s] === str[s+1]) count++;
+                    else{
+                        if(count>1) answer += count;
+                        count=1;
+                    }
+                }
+                return answer;
+            }
+            
+            let str="KKHSSSSSSSE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

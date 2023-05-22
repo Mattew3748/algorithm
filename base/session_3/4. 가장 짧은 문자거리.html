@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str, t){
+                let answer;
+                let numbersE = []
+
+                for(let s in str){
+                    if(str[s] === t) numbersE.push(s);
+                }
+
+                answer = str.split('').map( (item, idx) => {
+                    if(item === t){ 
+                        return 0
+                    }else{
+                        return Math.min( Math.abs(idx-numbersE[0]),Math.abs(idx-numbersE[1]),Math.abs(idx-numbersE[2]) )
+                    }
+                });
+                return answer.join('');
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>

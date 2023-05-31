@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr){
+                let maxNum = 0;
+                let maxIndexNum = 0;
+
+                arr.forEach( item => {
+                    let tmp = String(item).split('')
+                                          .reduce((account, number) => Number(account)+Number(number),0)
+                    if(tmp >= maxNum){
+                        maxNum = tmp;
+                        if(item >= maxIndexNum)maxIndexNum = item
+                    }
+                })
+                return maxIndexNum;
+            }
+            
+            let arr=[128, 460, 603, 40, 521, 137, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>
+

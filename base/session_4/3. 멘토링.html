@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = 0;
+                for(let i = 1; i <= arr[0].length; i++){
+                    for(let j = 1; j <= arr[0].length; j++){ 
+                        let cnt = 0;
+                        for(let k = 0; k < arr.length; k++){
+                            let pi = pj = 0;
+                            for(let m = 0; m < arr[0].length; m++){    
+                                if(arr[k][m] === i) pi = m;
+                                if(arr[k][m] === j) pj = m;
+                            }
+                            if(pi<pj) cnt++;
+                        }
+                        if(cnt === arr.length) answer++;
+                    }
+                }
+                return answer;
+            }
+            
+            let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

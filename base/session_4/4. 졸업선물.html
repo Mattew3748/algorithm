@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, product){
+                let answer = 0;
+                product.sort( (a,b) => (a[0]+a[1]) - (b[0]+b[1]) )
+                for(let i=0; i < product.length; i++){
+                    let tmp = []
+                    let cnt = 1;
+                    let money = m - (product[i][0]/2 + product[i][1])
+                    for(let j=0; j < product.length; j++){
+                        if(j !== i && (product[j][0] + product[j][1]) > money) break;
+                        if(j !== i && (product[j][0] + product[j][1]) <= money) {
+                            money -= (product[j][0] + product[j][1])
+                            cnt++;
+                            tmp.push([product[j][0] , product[j][1]])
+                        }
+                    }
+                    tmp.push([product[i][0] , product[i][1]])
+                    console.log(cnt, tmp)
+                    
+                    answer = Math.max(answer,cnt);
+                }
+                return answer;
+            }
+            
+            let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
+            console.log(solution(28, arr));
+
+        </script>
+    </body>
+</html>

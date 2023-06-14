@@ -11,6 +11,7 @@
                 for(let i=0; i<arr.length; i++){
                     sum = arr[i];
                     lt = 1;
+                    if(sum === m) answer++;
                     while(sum<m){
                         sum += arr[lt+i]
                         if(sum === m) answer++;

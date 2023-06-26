@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function checkANA(s, t) {
+                let res = true;
+                let hm1 = new Map();
+                
+                for(let item of t) {
+                    if(hm1.has(item)) hm1.set(item, hm1.get(item)+1)
+                    else hm1.set(item, 1)
+                }
+                for(let item of s){
+                    if(!hm1.get(item) || hm1.get(item)<1 ) res = false
+                    else hm1.set(item, hm1.get(item)-1)
+                }
+                return res;
+            }
+
+            function solution(s, t){
+                let answer = 0
+                let arr = s.split('')
+                let init = s.split('').slice(0,t.length);
+                
+                if(checkANA(init,t)) answer++;
+
+                for(let i=t.length; i<s.length; i++){
+                    init.shift()
+                    init.push(arr[i])
+                    if(checkANA(init,t)) answer++;
+                }
+                return answer;
+            }
+            
+            let a="bacaAacba";
+            let b="abc";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

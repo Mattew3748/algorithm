@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let arr = [];
+
+                for(let item of s){
+                    if(item === '(') arr.push(item);
+                    else{
+                        if(arr.length === 0) return "NO";
+                        arr.pop()
+                    }                    
+                }
+                if(arr.length > 0) return "NO"
+                return answer;
+            }
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>

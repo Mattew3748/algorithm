@@ -2,6 +2,8 @@
 
 ### 배열
 - **arr.splice(arr.index, x)** : 삭제할 arr.index부터 x개 삭제
+- **arr.pop()** : 배열의 마지막 요소 삭제
+- **arr.shift()** : 배열의 첫번째 요소 삭제
 - **isNaN(number)** : isNotNumber, 숫자일때 false return
 - **parseInt(string)** : 숫자로 변환. ex) parseInt('0208') => 208
 - **arr.sort([compareFuntion])** : 정렬 순서를 정의하는 함수.

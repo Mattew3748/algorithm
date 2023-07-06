@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, k){
+                let answer;
+                let que = Array.from({length:n}, (_,i) => i + 1);
+                for(let s of que){
+                    for(i = 1; i < k; i++) que.push(que.shift());
+                    que.shift();
+                }
+                answer = que[0]
+                return answer;
+            }
+            console.log(solution(8, 3));
+        </script>
+    </body>
+</html>

@@ -16,6 +16,7 @@
     만약 0을 리턴하면, a와 b의 순서를 변경하지 않습니다.
     ex) arr.sort( (a,b) => a - b)
     </pre>
+- **Array.from(iter, (val,index) => index +1 )** ; 문자열 등 유사 배열(Array-like) 객체나 이터러블한 객체를 배열로 만들어주는 메서드입니다. 
 
 ### 숫자
 - **Math.max()** : 최대값

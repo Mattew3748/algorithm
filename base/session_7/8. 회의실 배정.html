@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(meeting){
+                let answer=0;
+                let rt=0;
+
+                meeting.sort( (a,b) => {
+                    if(a[1] < b[1]) return -1;
+                    if(a[0] < b[0]) return -1;
+                })
+                
+                meeting.forEach( (iter) => {
+                    if(iter[0] >= rt){
+                        answer++;
+                        rt = iter[1]
+                    }
+                })
+                
+                return answer;
+            }
+
+            let arr=[[1, 4], [2, 3], [3, 5], [4, 6], [5, 7]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

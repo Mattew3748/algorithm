@@ -32,3 +32,41 @@
         </script>
     </body>
 </html>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(times){
+                let answer=0;
+                let cnt=0
+                let T_line = [];
+            
+                for(let s of times){
+                    T_line.push(["s",s[0]])
+                    T_line.push(["e",s[1]])
+                }
+
+                T_line.sort( (a,b) => {
+                    if(a[1]<b[1]) return -1
+                    if(a[1]===b[1]) return a[0].charCodeAt()-b[0].charCodeAt();
+                });
+            
+                T_line.forEach( (iter) => {
+                    if(iter[0] === 's')cnt++;
+                    else cnt--;
+                    answer = Math.max(answer,cnt)
+                });
+                
+                return answer;
+            }
+
+            let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

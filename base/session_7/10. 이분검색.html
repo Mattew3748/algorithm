@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(target, arr){
+                let answer;
+                let lt=0;
+                let rt=arr.length;
+                let mid=(lt+rt)/2-1
+
+                arr.sort((a,b) => a-b)
+                
+                while(lt<=rt){
+                    if(arr[mid] < target) lt = mid+1
+                    else if(arr[mid] > target) rt = mid-1
+                    else{
+                        answer = mid+1;
+                        break;
+                    }
+                    mid = parseInt((lt+rt)/2)
+                }
+                
+                return answer;
+            }
+
+            let arr=[23, 87, 65, 12, 57, 32, 99, 81];
+            console.log(solution(32, arr))
+        </script>
+    </body>
+</html>

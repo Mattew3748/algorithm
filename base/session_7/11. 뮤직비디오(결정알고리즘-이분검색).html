@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function fit(mid, songs) {
+                let res = 1
+                let tmpSum = 0
+                songs.forEach((iter)=>{
+                    if(iter+tmpSum > mid){
+                        res++;
+                        tmpSum = iter
+                    }else{
+                        tmpSum += iter
+                    }
+                })
+                return res
+}
+            function solution(m, songs){
+                let answer;
+                let lt = Math.max(...songs)
+                let rt = songs.reduce( (a,b) => a+b);
+                let mid = ''
+                let tmp =''
+                while(lt<=rt){
+                    mid = parseInt((lt+rt)/2)
+                    tmp = fit(mid,songs);
+                    if(tmp <= m){
+                        rt = mid-1
+                        answer = mid
+                    }else lt = mid+1
+                }
+                return answer;
+            }
+
+            let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+            console.log(solution(3, arr));
+        </script>
+    </body>
+</html>

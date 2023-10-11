@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(max, arr) {
+                let res = 0;
+                let n = arr.length;
+                
+                function DFS(L, sum){
+                    if(sum>max) return;
+                    if(L===n){
+                        res = Math.max(res,sum)
+                    }else{
+                        DFS(L+1, sum+arr[L]);
+                        DFS(L+1, sum);
+                    }
+                }
+                DFS(0,0)
+                return res;
+            }
+            console.log(solution(259,[81, 58, 42, 33, 61]))
+        </script>
+    </body>
+</html>

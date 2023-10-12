@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr1, arr2, max) {
+                let res = 0;
+                let n = arr1.length;
+
+                function DFS(L,sum, time){
+                    if(time>max)return;
+                    if(L===n){
+                        res = Math.max(res,sum);
+                    }else{
+                        DFS(L+1, sum+arr1[L], time+arr2[L]);
+                        DFS(L+1, sum, time);
+                    }
+                }
+                DFS(0,0,0)
+                return res;
+            }
+            let arr1 = [10, 25, 15, 6, 7];
+            let arr2 = [5, 12, 8, 3, 4];
+            console.log( solution(arr1, arr2, 20) );
+        </script>
+    </body>
+</html>

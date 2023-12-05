@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr,m) {
+                let ans = [];
+                let ch = Array.from( {length:arr.length}, ()=>0 )
+                let tmp = Array.from( {length:m}, ()=>0 )
+
+                function DFS(L) {
+                    if(L===m){
+                        ans.push(tmp.slice());
+                    }else{
+                        for(let i=0; i<arr.length; i++){
+                            if(ch[i]===0) { // 중복순열 제거
+                                tmp[L] = arr[i]
+                                ch[i]=1     // 사용중인 배열 체크
+                                DFS(L+1)
+                                ch[i]=0     // 사용끝난 배열 초기화
+                            }
+                        }
+                    }
+                }
+                DFS(0)
+                return ans;
+            }
+            console.log(solution([3,6,9],2))
+        </script>
+    </body>
+</html>

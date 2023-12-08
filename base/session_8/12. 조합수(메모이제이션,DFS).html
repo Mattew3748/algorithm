@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n,m){         
+                let answer=0;
+                // 메모제이션 : 값을 기억함(속도개선)
+                let ch = Array.from( Array(35), ()=>  Array.fill(35));
+                
+                function DFS(n,m){
+                    if(ch[n][m] > 0) return ch[n][m]
+                    if(n===m || m===0) return 1;
+                    else return ch[n][m] = DFS(n-1, m-1) + DFS(n-1, m)
+                }
+                answer = DFS(n,m) 
+                return answer;
+            }
+            console.log(solution(33,19));
+        </script>
+    </body>
+</html>

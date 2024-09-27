@@ -1,0 +1,27 @@
+<html></html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n,arr,t) {
+                let res = 0
+
+                function DFS(L,s,sum) {
+                    if(L === 3){
+                        if(sum % t === 0) res++;
+                    }else{
+                        for(let i=s; i<arr.length; i++){
+                            DFS(L+1, i+1, sum+arr[i])
+                        }
+                    }
+                }
+                
+                DFS(0,0,0)
+                return res;
+            }
+            console.log(solution(3,[2,4,5,8,12],6))
+        </script>
+    </body>
+</html>

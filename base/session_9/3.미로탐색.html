@@ -1,0 +1,45 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n,arr) {
+                let res = 0;
+                const dx = [0,1,0,-1];
+                const dy = [1,0,-1,0];
+
+                function DFS(v,k) {
+                    if(v===6 && k===6) res++;
+                    else{
+                        for(let i=0; i<4; i++){
+                            let x = v+dx[i]
+                            let y = k+dy[i]
+                            if(x>=0 && x<=6 && y>=0 && y<=6 && arr[x][y] === 0){
+                                arr[x][y] = 1
+                                DFS(x,y)
+                                arr[x][y] = 0
+                            }
+                        }
+                    }
+                }
+                arr[0][0] = 1
+                DFS(0,0)
+
+                return res;
+            }
+
+            let arr=[[0, 0, 0, 0, 0, 0, 0], 
+                    [0, 1, 1, 1, 1, 1, 0],
+                    [0, 0, 0, 1, 0, 0, 0],
+                    [1, 1, 0, 1, 0, 1, 1],
+                    [1, 1, 0, 0, 0, 0, 1],
+                    [1, 1, 0, 1, 1, 0, 0],
+                    [1, 0, 0, 0, 0, 0, 0]];
+
+            console.log(solution(6,arr))
+        </script>
+    </body>
+</html>

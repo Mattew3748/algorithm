@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s,e){  
+                let ch = Array.from( {length:10001}, ()=>0 )
+                let dist = Array.from( {length:10001}, ()=>0 )
+                let queue=[];
+                ch[s] = 1;
+                queue.push(s);
+                while(queue.length){
+                    let v=queue.shift();
+                    for(let nv of [v-1, v+1, v+5]){ 
+                        if(nv === e) {
+                            return dist[v]+1
+                        }else if(ch[nv] === 0){
+                            ch[nv] = 1
+                            queue.push(nv);
+                            dist[nv] = dist[v]+1
+                        }
+                    }
+                }
+                return answer;
+            }
+
+            console.log(solution(5,14));
+        </script>
+    </body>
+</html>

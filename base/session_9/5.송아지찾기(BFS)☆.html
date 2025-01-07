@@ -28,6 +28,34 @@
             }
 
             console.log(solution(5,14));
+
+            // 노드로 레벨로 찾기
+            function solution(s,e){  
+                let ch = Array.from( {length:10001}, ()=>0 )
+                let arr = [];
+                let L = 0;
+
+                arr.push(s)
+                ch[s] = 1
+
+                while(arr.length){
+                    let len = arr.length
+                    for(let i=0; i< len; i++){
+                        let x = arr.shift();
+                        for(const nv of [x-1, x+1,x+5]){
+                            if(nv === e) return L+1
+                            else if(nv>0 && nv<=10000 && ch[nv] == 0){
+                                arr.push(nv)
+                                ch[nv] = 1       
+                            }
+                        }    
+                    }
+                    L++;
+                }
+                return L;
+            }
+
+            console.log(solution(5,14));
         </script>
     </body>
 </html>

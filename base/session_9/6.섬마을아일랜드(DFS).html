@@ -1,0 +1,48 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let res = 0;
+                let dx = [-1,-1,0,1,1,1,0,-1]
+                let dy = [0,1,1,1,0,-1,-1,-1]
+                const n = arr.length;
+
+                function DFS (x,y) {
+                    arr[x][y] = 0;
+                    for(let i=0; i<8; i++){
+                        let tx = x+dx[i]
+                        let ty = y+dy[i]
+                        if(tx>=0 && tx<n && ty>=0 && ty<n && arr[tx][ty] === 1) {
+                            DFS(tx,ty)
+                        }
+                    }
+                }
+
+                for(let i=0; i<n; i++){
+                    for(let j=0; j<n; j++){
+                        if(arr[i][j] === 1){
+                            res++;
+                            DFS(i,j)
+                        }
+                    }
+                }
+                return res;
+            }
+
+            let arr=[[1, 1, 0, 0, 0, 1, 0], 
+                    [0, 1, 1, 0, 1, 1, 0],
+                    [0, 1, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 1, 0, 1, 1],
+                    [1, 1, 0, 1, 1, 0, 0],
+                    [1, 0, 0, 0, 1, 0, 0],
+                    [1, 0, 1, 0, 1, 0, 0]];
+
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
